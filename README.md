@@ -1,31 +1,32 @@
 # 🔐 Cryptography Toolkit for Secure Data Management
 
-A comprehensive collection of cryptographic algorithms and secure data management utilities implemented for educational, research, and cybersecurity purposes.
-
-This project demonstrates the implementation of classical and modern cryptographic techniques for protecting the confidentiality, integrity, and authenticity of digital information. It is designed to help students, cybersecurity enthusiasts, and developers understand how encryption algorithms work through practical implementation.
+A Python-based command-line cryptography toolkit that provides secure file encryption, password management, and image steganography. This project demonstrates practical applications of cryptography and data protection using a simple interactive menu.
 
 ---
 
 ## 📖 Overview
 
-The Cryptography Toolkit provides implementations of commonly used encryption, decryption, hashing, and security-related algorithms. The project serves as a hands-on learning resource for understanding the fundamentals of cryptography and secure data protection.
+The **Cryptography Toolkit for Secure Data Management** is designed to help users protect sensitive information through encryption and secure storage techniques. The toolkit combines multiple security utilities into a single command-line application, making it suitable for educational purposes, cybersecurity practice, and personal data protection.
 
-Whether you are studying cryptography, preparing for cybersecurity coursework, or building secure applications, this toolkit offers practical examples of cryptographic operations.
+The application allows users to:
+
+* Encrypt files with a password
+* Decrypt encrypted files
+* Store and retrieve credentials securely
+* Hide secret messages inside images
+* Extract hidden messages from images
 
 ---
 
 ## ✨ Features
 
-- Symmetric Encryption Algorithms
-- Asymmetric Encryption Algorithms
-- Classical Cipher Implementations
-- Hashing Algorithms
-- Secure File Encryption
-- Key Generation Utilities
-- Encryption & Decryption Demonstrations
-- Educational Examples with Source Code
-- Modular Project Structure
-- Easy-to-Understand Implementation
+* 🔒 Password-based file encryption
+* 🔓 Secure file decryption
+* 🔑 Password manager for storing credentials
+* 🖼️ Image steganography for hiding messages
+* 📩 Extract hidden messages from images
+* Interactive command-line interface
+* Modular Python implementation
 
 ---
 
@@ -34,64 +35,121 @@ Whether you are studying cryptography, preparing for cybersecurity coursework, o
 ```text
 Cryptography-Toolkit-for-Secure-Data-Management/
 │
-├── algorithms/
-│   ├── classical/
-│   ├── symmetric/
-│   ├── asymmetric/
-│   └── hashing/
-│
-├── examples/
-│
-├── utilities/
-│
-├── assets/
-│
+├── main.py
+├── crypto_utils.py
+├── password_manager.py
+├── steganography.py
+├── requirements.txt
 ├── README.md
 └── LICENSE
 ```
 
-> *The actual directory structure may vary depending on the implementation.*
+### Module Description
+
+| File                  | Description                                |
+| --------------------- | ------------------------------------------ |
+| `main.py`             | Main application with interactive CLI menu |
+| `crypto_utils.py`     | Handles file encryption and decryption     |
+| `password_manager.py` | Secure password vault implementation       |
+| `steganography.py`    | Hide and extract messages from images      |
 
 ---
 
-## 🔒 Cryptographic Concepts Covered
+## ⚙️ Functionality
 
-### Classical Cryptography
+### 1. File Encryption
 
-- Caesar Cipher
-- Vigenère Cipher
-- Playfair Cipher
-- Rail Fence Cipher
-- Hill Cipher
-- Transposition Ciphers
+Encrypt any supported file using a user-provided password.
 
-### Symmetric Cryptography
+**Workflow**
 
-- AES
-- DES
-- Triple DES (3DES)
-- Blowfish
+* Enter input file
+* Enter output file name
+* Enter password
+* Encrypted file is generated
 
-### Asymmetric Cryptography
+---
 
-- RSA
-- Diffie-Hellman Key Exchange
-- ElGamal
+### 2. File Decryption
 
-### Hash Functions
+Decrypt previously encrypted files using the correct password.
 
-- MD5
-- SHA-1
-- SHA-256
-- SHA-512
+**Workflow**
 
-### Additional Security Concepts
+* Select encrypted file
+* Choose output file
+* Enter password
+* Original file is restored
 
-- Digital Signatures
-- Public Key Infrastructure (PKI)
-- Message Authentication
-- Key Management
-- Secure Data Storage
+---
+
+### 3. Password Manager
+
+Securely manage login credentials using a master password.
+
+Available operations:
+
+* Add new account
+* Retrieve stored credentials
+* List saved services
+
+Example:
+
+```
+Master Password
+    │
+    ▼
+Password Manager
+    ├── Add Entry
+    ├── Get Entry
+    └── List Services
+```
+
+Each entry contains:
+
+* Service Name
+* Username
+* Password
+
+---
+
+### 4. Hide Message in Image
+
+Uses image steganography to embed a secret message inside an image.
+
+Workflow:
+
+1. Select image
+2. Enter secret message
+3. Save output image
+
+The resulting image appears visually unchanged while containing the hidden message.
+
+---
+
+### 5. Extract Hidden Message
+
+Reads an encoded image and extracts the embedded secret message.
+
+Workflow:
+
+1. Select encoded image
+2. Hidden message is displayed
+
+---
+
+## 🖥️ Command-Line Menu
+
+```
+=== Cryptography Toolkit ===
+
+1. Encrypt File
+2. Decrypt File
+3. Password Manager
+4. Hide Message in Image
+5. Extract Message from Image
+6. Exit
+```
 
 ---
 
@@ -103,100 +161,155 @@ Cryptography-Toolkit-for-Secure-Data-Management/
 git clone https://github.com/HBR2055/Cryptography-Toolkit-for-Secure-Data-Management.git
 ```
 
-Move into the project directory:
+### Navigate to the Project
 
 ```bash
 cd Cryptography-Toolkit-for-Secure-Data-Management
 ```
 
-Follow the instructions for the specific implementation or programming language used within the repository.
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Application
+
+```bash
+python main.py
+```
 
 ---
 
-## 🎯 Learning Objectives
+## 💡 Example Usage
 
-This project helps users understand:
+### Encrypt a File
 
-- Encryption vs Decryption
-- Symmetric vs Asymmetric Cryptography
-- Cryptographic Keys
-- Secure Communication
-- Hash Functions
-- Authentication
-- Digital Signatures
-- Confidentiality
-- Integrity
-- Non-Repudiation
+```
+Choice: 1
 
----
+Input file:
+document.pdf
 
-## 🛡️ Applications
+Output file:
+document.enc
 
-This toolkit can be used for:
-
-- Cybersecurity Education
-- Cryptography Coursework
-- Information Security Projects
-- Secure File Protection
-- Academic Research
-- Demonstration of Encryption Algorithms
-- Learning Secure Software Development
+Password:
+********
+```
 
 ---
 
-## 📚 Technologies
+### Decrypt a File
 
-Depending on the implementation, this repository may include:
+```
+Choice: 2
 
-- Python
-- Java
-- C++
-- JavaScript
-- HTML/CSS
+Encrypted file:
+document.enc
+
+Output file:
+document.pdf
+
+Password:
+********
+```
+
+---
+
+### Password Manager
+
+```
+Choice: 3
+
+Master Password:
+********
+
+1. Add Entry
+2. Get Entry
+3. List Services
+```
+
+---
+
+### Hide a Secret Message
+
+```
+Choice: 4
+
+Image:
+image.png
+
+Message:
+Confidential Information
+
+Output:
+secret_image.png
+```
+
+---
+
+### Extract Hidden Message
+
+```
+Choice: 5
+
+Image:
+secret_image.png
+
+Hidden Message:
+Confidential Information
+```
+
+---
+
+## 🛠 Technologies Used
+
+* Python 3
+* File Encryption
+* Password-Based Security
+* Image Steganography
+* Command-Line Interface (CLI)
+
+---
+
+## 🎯 Learning Outcomes
+
+This project demonstrates practical implementation of:
+
+* File Encryption
+* File Decryption
+* Password-Based Authentication
+* Secure Credential Storage
+* Image Steganography
+* Modular Python Programming
+* Secure Data Management
 
 ---
 
 ## ⚠️ Disclaimer
 
-This project is intended for **educational and research purposes only**.
-
-Do not use these implementations to protect highly sensitive or production-critical information unless they have been independently reviewed, tested, and meet modern security standards. Some algorithms included (such as classical ciphers or legacy algorithms like DES and MD5) are intentionally insecure by today's standards and are included for learning purposes only. :contentReference[oaicite:0]{index=0}
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-If you would like to improve this project:
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Push your branch.
-5. Open a Pull Request.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+This project is intended for educational purposes and cybersecurity practice. It demonstrates cryptographic techniques and secure data management concepts. It should not be relied upon for protecting highly sensitive or production-critical information without additional security review and testing.
 
 ---
 
 ## 👨‍💻 Author
 
-**Kamal (HBR2055)**
+**(HBR2055)**
 
-- GitHub: https://github.com/HBR2055
+Cybersecurity Enthusiast | Information Technology Graduate
+
+GitHub: https://github.com/HBR2055
 
 ---
 
 ## ⭐ Support
 
-If you find this project helpful:
+If you found this project useful:
 
-- ⭐ Star the repository
-- 🍴 Fork the project
-- 🐛 Report issues
-- 💡 Suggest improvements
+* Star ⭐ the repository
+* Fork 🍴 the project
+* Report issues
+* Submit improvements through Pull Requests
+
+Contributions are always welcome.
